@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import State from "./state";
+
 import City from "./city";
 
 // Do not alter the states const and values inside it.
@@ -162,10 +162,12 @@ function App() {
       {states.map((state, idx) => (
         <div
           id={`state${idx + 1}`}
-          onClick={() => changeCurrentState(state.name)}
+          onClick={() => {
+            changeCurrentState(state.name);
+          }}
         >
           {state.name}
-          <City state={currentState} />
+          <City state={currentState} data={states} stateId={idx} />
         </div>
       ))}
     </div>
