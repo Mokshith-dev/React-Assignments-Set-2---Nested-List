@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
-
-import City from "./city";
+import "./../styles/App.css";
+import States from "./States";
 
 // Do not alter the states const and values inside it.
 const states = [
@@ -156,20 +156,9 @@ const states = [
 ];
 
 function App() {
-  const [currentState, changeCurrentState] = useState("");
   return (
     <div id="main">
-      {states.map((state, idx) => (
-        <div
-          id={`state${idx + 1}`}
-          onClick={() => {
-            changeCurrentState(state.name);
-          }}
-        >
-          {state.name}
-          <City state={currentState} data={states} stateId={idx} />
-        </div>
-      ))}
+      <States states={states} />
     </div>
   );
 }
